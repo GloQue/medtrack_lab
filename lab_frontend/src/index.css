@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Dancing+Script:wght@600;700&family=Lobster&family=Mogra&family=Oswald&family=Pacifico&family=Parisienne&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quintessential&family=Rancho&family=Roboto:ital,wght@0,300;0,400;0,500;1,700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+}
+
+.nav_bar{
+  background-color: rgb(8,113,179);
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_bar_menu{
+  display: flex;
+  gap: 1rem;
+}
+
+.nav_bar a{
+  color: grey;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.nav_bar .active{
+  color: white;
+}
+
+.nav_bar_searchContainer{
+  position: relative;
+  width: 20%;
+}
+
+.nav_bar_searchContainer .nav_bar_search{
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.nav_search_icon{
+  color: grey;
+  position: absolute;
+  right: 10px;
+  bottom: 9px;
+}
+
+h1{
+  color: rgb(90,130,156);
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+
+/* --------------------------------------------FORM--------------------------------- */
+.form_container{
+  background-color: rgb(241,242,246);
+  padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgb(217, 228, 236);
+}
+
+.form_container form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-basis: 60%;
+}
+
+.stats_container{
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  flex-basis: 30%;
+}
+
+.label_input_container{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.label_input_container label{
+  color: rgb(90,130,156);
+  flex-basis: 30%;
+}
+
+.label_input_container input, .label_input_container select{
+  border: 1px solid rgb(217, 228, 236);
+  padding: 0.5rem 1rem;
+  flex-basis: 60%;
+}
+
+.label_input_container.select_section input, .label_input_container.select_section select{
+  flex-basis: 29%;
+}
+
+.label_input_container select{
+  color: grey;
+}
+
+.label_input_container.submit_section input{
+  flex-basis: 49%;
+}
+
+.label_input_container.submit_section .form_btn_container{
+  flex-basis: 15%;
+}
+
+.label_input_container input::placeholder{
+  color: rgb(223,227,230);
+}
+
+.label_input_container input:focus{
+  outline: red;
+}
+
+.form_btn_container{
+  width: 20%;
+}
+
+.submit_button{
+  background-color: rgb(8,113,179);
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-weight: 600;
+}
+
+/* --------------------------------------------TABLE--------------------------------- */
+.table_container{
+  padding: 3rem 0;
+  /* width: 100%; */
+  margin: 0 auto;
+}
+
+.table_container table{
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid rgb(217, 228, 236);
+}
+
+table thead{
+  background-color: rgb(241,242,246);
+}
+
+table thead tr th{
+  padding: 1rem 2rem;
+  color: rgb(8,113,179);
+}
+
+table tbody tr td{
+  padding: 1rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid rgb(217, 228, 236);
+}
