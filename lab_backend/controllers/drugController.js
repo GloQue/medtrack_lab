@@ -7,11 +7,8 @@ const getDrugs = asyncHandler(async (req, res) => {
 });
 
 const getDrug = asyncHandler(async (req, res) => {
-  const { id } = req.params;
+  const id = req.params.id;
   const drug = await Drug.findById(id);
-  if (!drug) {
-    return res.status(404).json({ message: "Drug not found" });
-  }
   return res.status(200).json(drug);
 });
 
@@ -36,12 +33,7 @@ const createDrug = asyncHandler(async (req, res) => {
 });
 
 const updateDrug = asyncHandler(async (req, res) => {
-  const id = req.params.id;
-  const drug = await Drug.findOne({ id });
-  if (!drug) {
-    return res.status(404).json({ message: "Drug not found" });
-  }
-
+  const { id } = req.params;
   const updateDrug = await Drug.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
   });

@@ -9,6 +9,14 @@ const errorHandler = (err, req, res, next) => {
       });
       break;
 
+    case 403:
+      res.json({
+        title: "Forbidden",
+        message: err.message,
+        stackTrace: err.stack,
+      });
+      break;
+
     case 404:
       res.json({
         title: "Not Found",
