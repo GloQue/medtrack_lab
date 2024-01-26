@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const Drug = require("../models/drugModel");
+const mongoose = require("mongoose");
 
 const getDrugs = asyncHandler(async (req, res) => {
   const allDrugs = await Drug.find();
@@ -8,6 +9,12 @@ const getDrugs = asyncHandler(async (req, res) => {
 
 const getDrug = asyncHandler(async (req, res) => {
   const id = req.params.id;
+
+  var isValid = mongoose.Types.ObjectId.isValid(id);
+  if (!isValid) {
+    return res.status(400).json({ message: "invalid id" });
+  }
+
   const drug = await Drug.findById(id);
   return res.status(200).json(drug);
 });
@@ -34,9 +41,14 @@ const createDrug = asyncHandler(async (req, res) => {
 
 const updateDrug = asyncHandler(async (req, res) => {
   const { id } = req.params;
+  var isValid = mongoose.Types.ObjectId.isValid(id);
+  if (!isValid) {
+    return res.status(400).json({ message: "invalid id" });
+  }
   const updateDrug = await Drug.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
   });
+
   return res.status(200).json(updateDrug);
 });
 
