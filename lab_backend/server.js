@@ -10,6 +10,7 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use("/api/drugs", require("./routes/drugRoutes"));
+app.use("/api/labs", require("./routes/labRoutes"));
 app.use(errorHandler);
 
 app.listen(port, () => {
