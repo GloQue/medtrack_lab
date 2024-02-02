@@ -1,45 +1,43 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import {ADD_DATA} from '../store/actions'
+import React from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addLabData } from '../store/thunk';
 
 
 function UserForm() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const [labName, setLabName] = useState('')
-  const [labType, setLabType] = useState('')
-  const [mainCategory, setMainCategory] = useState('')
-  const [subCategory, setSubCategory] = useState('')
-  const [labItemCode, setLabItemCode] = useState('')
-  const [price, setPrice] = useState('')
+  const [labName, setLabName] = useState('');
+  const [labType, setLabType] = useState('');
+  const [mainCategory, setMainCategory] = useState('');
+  const [subCategory, setSubCategory] = useState('');
+  const [labCode, setLabCode] = useState('');
+  const [labPrice, setLabPrice] = useState(0);
   
  
 
-  const optionss = ['Lab Type', 'Radiology', 'Laboratory']
-
-  console.log('labtype', labType)
+  const optionss = ['Lab Type', 'Radiology', 'Laboratory'];
 
   const handleSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     const labDetails = {
       labName,
       labType,
       mainCategory,
       subCategory,
-      labItemCode,
-      price
+      labCode,
+      labPrice
     }
 
-    dispatch({type: ADD_DATA, payload: labDetails})
+    dispatch(addLabData(labDetails));
 
     setLabName('')
     setLabType('')
     setMainCategory('')
     setSubCategory('')
-    setLabItemCode('')
-    setPrice('')
+    setLabCode('')
+    setLabPrice('')
   }
 
 
@@ -67,11 +65,11 @@ function UserForm() {
         </div>
         <div className='label_input_container'>
           <label htmlFor="">Lab Item Code</label>
-          <input type="text" placeholder='Aoc123FH' value={labItemCode} onChange={(event) => setLabItemCode(event.target.value)}/>
+          <input type="text" placeholder='Aoc123FH' value={labCode} onChange={(event) => setLabCode(event.target.value)}/>
         </div>
         <div className='label_input_container submit_section'>
           <label htmlFor="">Price</label>
-          <input type="text" placeholder='2.02' value={price} onChange={(event) => setPrice(event.target.value)}/>
+          <input type="text" placeholder='2.02' value={labPrice} onChange={(event) => setLabPrice(event.target.value)}/>
           <div className='form_btn_container'>
             <button type='submit' className='submit_button'> + ADD</button>
           </div>

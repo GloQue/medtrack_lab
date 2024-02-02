@@ -1,1 +1,5 @@
-export const ADD_DATA = 'ADD LAB DATA'
+export const ADD_LAB_DATA = 'ADD LAB DATA'
+export const FETCH_LAB_DATA = 'GET LAB DATA'
+export const FETCH_ONE_LAB_DATA = 'GET A LAB DATA'
+export const DELETE_LAB_DATA = 'DELETE ITEM'
+export const UPDATE_LAB_DATA = 'UPDATE FORM'

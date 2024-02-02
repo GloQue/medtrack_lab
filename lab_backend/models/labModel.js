@@ -25,6 +25,9 @@ const labSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+}, 
+{
+  timestamps: true
 });
 
 module.exports = mongoose.model("Lab", labSchema);
