@@ -26,7 +26,7 @@ function Home() {
     <div>
       <Nav />
       <div style={{padding: "2rem 3rem"}}>
-        <h1>Hospital Management System</h1>
+        <h1>Inventory Management System</h1>
         <UserForm />
         <Table data={data}/>
       </div> 

@@ -2,6 +2,8 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addLabData } from '../store/thunk';
+import { IoMdAdd } from "react-icons/io";
+import '../components/UserForm.css'
 
 
 function UserForm() {
@@ -71,7 +73,7 @@ function UserForm() {
           <label htmlFor="">Price</label>
           <input type="text" placeholder='2.02' value={labPrice} onChange={(event) => setLabPrice(event.target.value)}/>
           <div className='form_btn_container'>
-            <button type='submit' className='submit_button' disabled={!labName || !labType || !mainCategory || !subCategory ||!labCode ||!labPrice} style={(!labName || !labType || !mainCategory || !subCategory ||!labCode ||!labPrice) ? {cursor: "not-allowed"} : {cursor: "pointer"}}> + ADD</button>
+            <button type='submit' className='submit_button' disabled={!labName || !labType || !mainCategory || !subCategory ||!labCode ||!labPrice} style={(!labName || !labType || !mainCategory || !subCategory ||!labCode ||!labPrice) ? {cursor: "not-allowed"} : {cursor: "pointer"}}><IoMdAdd />ADD</button>
           </div>
         </div>
       </form>

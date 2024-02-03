@@ -1,0 +1,124 @@
+.form_container{
+    background-color: rgb(241,242,246);
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgb(217, 228, 236);
+  }
+  
+  .form_container form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-basis: 60%;
+  }
+  
+  .stats_container{
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    flex-basis: 30%;
+  }
+  
+  .label_input_container{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .label_input_container label{
+    color: rgb(90,130,156);
+    flex-basis: 30%;
+  }
+  
+  .label_input_container input, .label_input_container select{
+    border: 1px solid rgb(217, 228, 236);
+    padding: 0.5rem 1rem;
+    flex-basis: 60%;
+  }
+  
+  .label_input_container.select_section input, .label_input_container.select_section select{
+    flex-basis: 29%;
+  }
+  
+  .label_input_container select{
+    color: grey;
+  }
+  
+  .label_input_container.submit_section input{
+    flex-basis: 49%;
+  }
+  
+  .label_input_container.submit_section .form_btn_container{
+    flex-basis: 15%;
+  }
+  
+  .label_input_container input::placeholder{
+    color: rgb(223,227,230);
+  }
+  
+  .label_input_container input:focus{
+    outline: red;
+  }
+  
+  .form_btn_container{
+    width: 20%;
+  }
+  
+  .submit_button{
+    background-color: rgb(8,113,179);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    font-weight: 600;
+  }
+
+  
+  /* --------------------------------------------FORM--------------------------------- */
+  @media screen and (max-width: 650px) {
+    .form_container{
+        background-color: rgb(241,242,246);
+        padding: 1rem;
+        gap: 2rem;
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .form_container form{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+      }
+      
+      .stats_container{
+        width: 100%;
+        min-height: 250px;
+      }
+      
+      .label_input_container{
+        flex-direction: column;
+        align-items: start;
+        gap: 0.5rem;
+        width: 100%;
+      }
+      
+      .label_input_container input, .label_input_container select{
+        border: 1px solid rgb(217, 228, 236);
+        padding: 0.5rem 1rem;
+        width: 100%;
+      }
+      
+      .label_input_container.select_section input, .label_input_container.select_section select{
+       width: 100%;
+      }
+      
+      .form_btn_container{
+        width: 50%;
+        margin: 0 auto;
+      }
+      
+      .submit_button{
+        width: 100%;
+      }
+  }

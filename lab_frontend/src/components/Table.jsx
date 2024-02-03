@@ -5,6 +5,7 @@ import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteLabData, fetchLabData } from '../store/thunk';
+import '../components/Table.css'
 
 
 function Table({data}) {
@@ -43,10 +44,10 @@ const handleDelete = (id) => {
                     <td>{tableInfo.labCode}</td>
                     <td>{tableInfo.labPrice}</td>
                     <td>
-                      <div style={{display: "flex", gap: "1rem", justifyContent: "center"}}>
-                        <Link to={`/showlabinfo/${tableInfo._id}`}><MdOutlinePreview /></Link>
-                        <Link to={`/editform/${tableInfo._id}`}><CiEdit /></Link>
-                        <MdDelete onClick={() => handleDelete(tableInfo._id)}/>
+                      <div className='table_icons_container' style={{display: "flex", gap: "1rem", justifyContent: "center"}}>
+                        <Link className='view_btn' to={`/showlabinfo/${tableInfo._id}`}><MdOutlinePreview /></Link>
+                        <Link className='edit_btn' to={`/editform/${tableInfo._id}`}><CiEdit /></Link>
+                        <MdDelete className='delete_btn' onClick={() => handleDelete(tableInfo._id)}/>
                       </div>
                     </td>
                 </tr>

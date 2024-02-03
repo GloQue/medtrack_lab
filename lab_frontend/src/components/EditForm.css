@@ -1,0 +1,54 @@
+.edit_form_container{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.edit_form_container form{
+    border: 1px solid rgb(125,211,252);
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 40%;
+    padding: 3rem;
+}
+
+.edit_label_input_container label{
+    display: block;
+    color: rgb(90,130,156);
+}
+
+.edit_label_input_container input, .edit_label_input_container select{
+    border: 1px solid black;
+    padding: 0.5rem 1rem;
+    width: 100%;
+}
+
+.edit_label_input_container input::placeholder{
+    color: rgb(223,227,230);
+}
+  
+.edit_form_btn_container{
+    width: 50%;
+    margin: 1rem auto;
+}
+  
+.edit_submit_button{
+    background-color: rgb(8,113,179);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+}
+
+.back_to_home_btn{
+    min-width: 10%;
+    background-color: rgb(8,113,179);
+    padding: 0.5rem 1rem;
+    border: none;
+}

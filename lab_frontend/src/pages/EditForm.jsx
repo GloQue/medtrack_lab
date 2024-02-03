@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { fetchLabData, updateLabData } from '../store/thunk';
+import '../components/EditForm.css'
 
 function EditForm() {
     const dispatch = useDispatch();
@@ -49,12 +50,14 @@ function EditForm() {
     const optionss = ['Lab Type', 'Radiology', 'Laboratory']
 
   return (
-    <div className='form_container' style={{display: "flex", flexDirection: "column", gap: "2rem"}}>
-        <button style={{width: "10%", backgroundColor: "rgb(8,113,179)", padding: "0.5rem 1rem", border: "none"}}><Link to='/' style={{textDecoration: "none", color: "white"}}>Back to home</Link></button>
+    <div className='edit_form_container'>
+        <button className='back_to_home_btn'><Link to='/' style={{textDecoration: "none", color: "white"}}>Back to home</Link></button>
         <form>
-            <div className='label_input_container select_section'>
+            <div className='edit_label_input_container'>
                 <label htmlFor="">Lab Item Name</label>
                 <input type="text" placeholder='Type lab name here' value={labName} onChange={(event) => setLabName(event.target.value)}/>
+            </div>
+            <div className='edit_label_input_container edit_select_section'>
                 <select name="" id="" value={labType} onChange={(event) => setLabType(event.target.value)}>
                     {
                     optionss.map((item) => (
@@ -63,23 +66,23 @@ function EditForm() {
                     }
                 </select>
             </div>
-            <div className='label_input_container'>
+            <div className='edit_label_input_container'>
                 <label htmlFor="">Main Category</label>
                 <input type="text" placeholder='X-ray' value={mainCategory} onChange={(event) => setMainCategory(event.target.value)}/>
             </div>
-            <div className='label_input_container'>
+            <div className='edit_label_input_container'>
                 <label htmlFor="">Sub Category</label>
                 <input type="text" placeholder='Head and Skull' value={subCategory} onChange={(event) => setSubCategory(event.target.value)}/>
             </div>
-            <div className='label_input_container'>
+            <div className='edit_label_input_container'>
                 <label htmlFor="">Lab Item Code</label>
                 <input type="text" placeholder='Aoc123FH' value={labCode} onChange={(event) => setLabCode(event.target.value)}/>
             </div>
-            <div className='label_input_container submit_section'>
+            <div className='edit_label_input_container edit_submit_section'>
                 <label htmlFor="">Price</label>
                 <input type="text" placeholder='2.02' value={labPrice} onChange={(event) => setLabPrice(event.target.value)}/>
-                <div className='form_btn_container'>
-                    <button className='submit_button' type='button' style={{cursor: "pointer"}} onClick={() => handleEdit(id)}>EDIT</button>
+                <div className='edit_form_btn_container'>
+                    <button className='edit_submit_button' type='button' style={{cursor: "pointer"}} onClick={() => handleEdit(id)}>EDIT</button>
                 </div>
             </div>
         </form>
