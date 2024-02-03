@@ -20,6 +20,7 @@ const labSchema = mongoose.Schema({
   labCode: {
     type: String,
     required: [true, "Lab code empty."],
+    set: (value) => value.toUpperCase(),
   },
   labPrice: {
     type: Number,

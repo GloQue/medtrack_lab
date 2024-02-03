@@ -1,9 +1,7 @@
 import { ADD_LAB_DATA, DELETE_LAB_DATA, FETCH_LAB_DATA, UPDATE_LAB_DATA } from "../actions";
 
 const initialState = {
-    labInfo: [],
-    loading: false,
-    error: null
+    labInfo: []
 };
 
 export const labReducer = (state = initialState, action) => {

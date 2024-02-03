@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { fetchLabData, updateLabData } from '../store/thunk';
 
 function EditForm() {
@@ -42,7 +42,6 @@ function EditForm() {
         };
     
         dispatch(updateLabData(id, updatedLabData));
-        navigate('/');
     };
     
    
@@ -50,7 +49,8 @@ function EditForm() {
     const optionss = ['Lab Type', 'Radiology', 'Laboratory']
 
   return (
-    <div className='form_container'>
+    <div className='form_container' style={{display: "flex", flexDirection: "column", gap: "2rem"}}>
+        <button style={{width: "10%", backgroundColor: "rgb(8,113,179)", padding: "0.5rem 1rem", border: "none"}}><Link to='/' style={{textDecoration: "none", color: "white"}}>Back to home</Link></button>
         <form>
             <div className='label_input_container select_section'>
                 <label htmlFor="">Lab Item Name</label>
@@ -79,7 +79,7 @@ function EditForm() {
                 <label htmlFor="">Price</label>
                 <input type="text" placeholder='2.02' value={labPrice} onChange={(event) => setLabPrice(event.target.value)}/>
                 <div className='form_btn_container'>
-                    <button className='submit_button' onClick={() => handleEdit(id)}>EDIT</button>
+                    <button className='submit_button' type='button' style={{cursor: "pointer"}} onClick={() => handleEdit(id)}>EDIT</button>
                 </div>
             </div>
         </form>

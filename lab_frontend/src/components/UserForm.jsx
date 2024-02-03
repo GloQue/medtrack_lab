@@ -12,7 +12,7 @@ function UserForm() {
   const [mainCategory, setMainCategory] = useState('');
   const [subCategory, setSubCategory] = useState('');
   const [labCode, setLabCode] = useState('');
-  const [labPrice, setLabPrice] = useState(0);
+  const [labPrice, setLabPrice] = useState('');
   
  
 
@@ -71,11 +71,11 @@ function UserForm() {
           <label htmlFor="">Price</label>
           <input type="text" placeholder='2.02' value={labPrice} onChange={(event) => setLabPrice(event.target.value)}/>
           <div className='form_btn_container'>
-            <button type='submit' className='submit_button'> + ADD</button>
+            <button type='submit' className='submit_button' disabled={!labName || !labType || !mainCategory || !subCategory ||!labCode ||!labPrice} style={(!labName || !labType || !mainCategory || !subCategory ||!labCode ||!labPrice) ? {cursor: "not-allowed"} : {cursor: "pointer"}}> + ADD</button>
           </div>
         </div>
       </form>
-      <div className='stats_container'></div>
+      <div className='stats_container'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veniam, magni iusto aliquam reiciendis suscipit deleniti sequi. Praesentium dignissimos architecto esse fuga quia! Quae aut cum incidunt commodi temporibus voluptas fugiat tempora minima alias, error quos enim at dolor quo porro voluptatum quisquam voluptates, saepe dolore. Esse ab et voluptate.</div>
     </div>
   )
 }

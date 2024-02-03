@@ -23,14 +23,9 @@ body{
   gap: 1rem;
 }
 
-.nav_bar a{
+.nav_bar .nav_bar_menu span{
   color: grey;
-  text-decoration: none;
   font-size: 1.2rem;
-}
-
-.nav_bar .active{
-  color: white;
 }
 
 .nav_bar_searchContainer{
@@ -162,4 +157,113 @@ table tbody tr td{
   padding: 1rem 2rem;
   text-align: center;
   border-bottom: 1px solid rgb(217, 228, 236);
+}
+
+
+
+
+/* --------------------------------------------MEDIA QUERIES--------------------------------- */
+
+@media screen and (max-width: 650px) {
+  .nav_bar{
+    padding: 1rem 1rem;
+    justify-content: space-between;
+  }
+  
+  .nav_bar a{
+    color: grey;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  .nav_bar_searchContainer{
+    width: 40%;
+  }
+  
+  h1{
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  /* --------------------------------------------FORM--------------------------------- */
+.form_container{
+  background-color: rgb(241,242,246);
+  padding: 1rem;
+  gap: 2rem;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form_container form{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.stats_container{
+  width: 100%;
+  max-height: 250px;
+}
+
+.label_input_container{
+  flex-direction: column;
+  align-items: start;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.label_input_container input, .label_input_container select{
+  border: 1px solid rgb(217, 228, 236);
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+.label_input_container.select_section input, .label_input_container.select_section select{
+ width: 100%;
+}
+
+.label_input_container input::placeholder{
+  color: rgb(223,227,230);
+}
+
+
+.form_btn_container{
+  width: 50%;
+  margin: 0 auto;
+}
+
+.submit_button{
+  width: 100%;
+}
+
+/* --------------------------------------------TABLE--------------------------------- */
+.table_container{
+  padding: 3rem 0;
+  /* width: 100%; */
+  margin: 0 auto;
+  display: none;
+}
+
+.table_container table{
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid rgb(217, 228, 236);
+}
+
+table thead{
+  background-color: rgb(241,242,246);
+}
+
+table thead tr th{
+  padding: 1rem 2rem;
+  color: rgb(8,113,179);
+}
+
+table tbody tr td{
+  padding: 1rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid rgb(217, 228, 236);
+}
+  
 }

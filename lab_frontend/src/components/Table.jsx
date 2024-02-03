@@ -11,9 +11,12 @@ function Table({data}) {
 const dispatch = useDispatch();
 
 const handleDelete = (id) => {
-  dispatch(deleteLabData(id));
-  dispatch(fetchLabData());
+  if (window.confirm('Are you sure you want to delete this item?')) {
+    dispatch(deleteLabData(id));
+    dispatch(fetchLabData());
+  }
 };
+
 
   return (
     <div className='table_container'>
@@ -39,10 +42,12 @@ const handleDelete = (id) => {
                     <td>{tableInfo.subCategory}</td>
                     <td>{tableInfo.labCode}</td>
                     <td>{tableInfo.labPrice}</td>
-                    <td style={{display: "flex", gap: "1rem", justifyContent: 'center', height: "56.4px"}}>
-                      <Link to={`/showlabinfo/${tableInfo._id}`}><MdOutlinePreview /></Link>
-                      <Link to={`/editform/${tableInfo._id}`}><CiEdit /></Link>
-                      <MdDelete onClick={() => handleDelete(tableInfo._id)}/>
+                    <td>
+                      <div style={{display: "flex", gap: "1rem", justifyContent: "center"}}>
+                        <Link to={`/showlabinfo/${tableInfo._id}`}><MdOutlinePreview /></Link>
+                        <Link to={`/editform/${tableInfo._id}`}><CiEdit /></Link>
+                        <MdDelete onClick={() => handleDelete(tableInfo._id)}/>
+                      </div>
                     </td>
                 </tr>
                 ))

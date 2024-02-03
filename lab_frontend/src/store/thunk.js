@@ -79,6 +79,8 @@ export const deleteLabData = (id) => async(dispatch, getState) => {
 
     const data = await response.json();
     dispatch({type: DELETE_LAB_DATA, payload: data});
+    dispatch(fetchLabData());
+    
     return data;
    } catch (error) {
     console.log(error);
