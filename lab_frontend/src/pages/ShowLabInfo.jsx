@@ -44,13 +44,13 @@ function ShowLabInfo() {
                 </div>
                 <div>
                     <span>CREATED AT:</span>
-                    <span>{new Date(lab.createdAt).toString()}</span>
+                    <span>{new Date(lab.createdAt).toLocaleString()}</span>
                 </div>
                 <div>
                     <span>UPDATED AT:</span>
-                    <span>{new Date(lab.updatedAt).toString()}</span>
+                    <span>{new Date(lab.updatedAt).toLocaleString()}</span>
                 </div>
-        </div>
+            </div>
         </div>
     );
 }

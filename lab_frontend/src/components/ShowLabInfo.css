@@ -1,6 +1,6 @@
 .showlabcontainer{
     padding: 2rem;
-    min-width: 1000px;
+    width: 100%;
 }
 
 .lab_container{
@@ -9,7 +9,7 @@
     gap: 1rem;
     border: 1px solid rgb(56,189,248);
     border-radius: 10px;
-    width: 50%;
+    width: 40%;
     padding: 1rem;
     margin-top: 3rem;
 }
@@ -33,4 +33,15 @@
     text-decoration: none;
     color: white;
     font-size: 1rem;
+}
+
+/* --------------------------------------------MEDIA QUERIES--------------------------------- */
+@media screen and (max-width: 650px) {
+   .showlabcontainer{
+    padding: 1rem;
+   }
+   
+    .lab_container{
+    width: 100%;
+   }
 }
