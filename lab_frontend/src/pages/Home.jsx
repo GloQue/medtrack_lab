@@ -4,27 +4,45 @@ import { useDispatch, useSelector } from 'react-redux'
 import Nav from '../components/Nav'
 import UserForm from '../components/UserForm'
 import { fetchLabData } from '../store/thunk'
+import ShowOptions from '../components/ShowOptions'                           
 
 
 function Home() {
   const data = useSelector(state => state.lab.labInfo);
   const dispatch = useDispatch();
+  const [inputVal, setInputVal] = useState('');
+  const [filteredData, setFilteredData] = useState([]);
+  const [inputData, setInputData] = useState([])
   console.log({data})
 
 
   useEffect(() => {
     dispatch(fetchLabData())
-  }, []);
-  
-  
-  // const filtered = (event) => {
-  //   setFilteredData(data.filter((item) => item.labName.toLowerCase().includes(event.target.value)))
-  // }
+  }, [dispatch]);
 
+  useEffect(() => {
+    setInputData(data);
+  }, [data]);
+ 
+  const handleOnChange = (event) => {
+    const inputValue = event.target.value;
+    setInputVal(inputValue);
+  
+    if (inputValue.trim() === '') {
+      setFilteredData([]);
+    } else {
+      const filtered = inputData.filter(item => item && item.labName && item.labName.toLowerCase().includes(inputValue.toLowerCase()));
+      setFilteredData(filtered);
+    }
+  };
+
+  
+  
 
   return (
     <div>
-      <Nav />
+      <Nav handleOnChange={handleOnChange}/>
+      <ShowOptions filteredData={filteredData} />
       <div style={{padding: "2rem 3rem"}}>
         <h1>Inventory Management System</h1>
         <UserForm />

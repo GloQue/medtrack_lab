@@ -32,10 +32,10 @@ const addLab = asyncHandler(async (req, res) => {
   ) {
     return res.status(400).json({ msg: "All fields are required" });
   }
-  const labExist = await Lab.findOne({ labName });
-  if (labExist) {
-    return res.status(409).json({ mgs: "Lab already exist" });
-  }
+  // const labExist = await Lab.findOne({ labName });
+  // if (labExist) {
+  //   return res.status(409).json({ mgs: "Lab already exist" });
+  // }
 
   const addLab = await Lab.create({
     labName,

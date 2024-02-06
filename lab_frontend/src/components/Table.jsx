@@ -14,7 +14,6 @@ const dispatch = useDispatch();
 const handleDelete = (id) => {
   if (window.confirm('Are you sure you want to delete this item?')) {
     dispatch(deleteLabData(id));
-    dispatch(fetchLabData());
   }
 };
 
