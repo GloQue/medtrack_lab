@@ -4,17 +4,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addLabData } from '../store/thunk';
 import { IoMdAdd } from "react-icons/io";
 import '../components/UserForm.css'
+import { useSnackbar } from 'notistack';
 
 
 function UserForm() {
   const dispatch = useDispatch();
+  const {enqueueSnackbar} = useSnackbar();
 
   const [labName, setLabName] = useState('');
   const [labType, setLabType] = useState('');
   const [mainCategory, setMainCategory] = useState('');
   const [subCategory, setSubCategory] = useState('');
   const [labCode, setLabCode] = useState('');
-  const [labPrice, setLabPrice] = useState('');
+  const [labPrice, setLabPrice] = useState(0);
   
  
 
@@ -32,14 +34,44 @@ function UserForm() {
       labPrice
     }
 
-    dispatch(addLabData(labDetails));
+    if(!labName){
+      enqueueSnackbar('Name field is required', {variant: 'error'})
+    }else if(!labType){
+      enqueueSnackbar('Lab type field is required', {variant: 'error'})
+    }else if(!mainCategory){
+      enqueueSnackbar('Main category field is required', {variant: 'error'})
+    }else if(!subCategory){
+      enqueueSnackbar('Sub category field is required', {variant: 'error'})
+    }else if(!labCode){
+      enqueueSnackbar('Labcode field is required', {variant: 'error'})
+    }else if(!labPrice){
+      enqueueSnackbar('Lab Price field is required', {variant: 'error'})
+    }else{
+      dispatch(addLabData(labDetails));
+      enqueueSnackbar('Lab Details Added Successfully', {variant: 'success'});
 
-    setLabName('')
-    setLabType('')
-    setMainCategory('')
-    setSubCategory('')
-    setLabCode('')
-    setLabPrice('')
+      setLabName('')
+      setLabType('')
+      setMainCategory('')
+      setSubCategory('')
+      setLabCode('')
+      setLabPrice(0)
+    }
+
+    // if(!labName || !labType || !mainCategory || !subCategory || !labCode || !labPrice){
+    //   enqueueSnackbar('Make sure all input fields are completed', {variant: 'error'});
+    // }else{
+    //   dispatch(addLabData(labDetails));
+    //   enqueueSnackbar('Lab Added Successfully', {variant: 'success'});
+
+    //   setLabName('')
+    //   setLabType('')
+    //   setMainCategory('')
+    //   setSubCategory('')
+    //   setLabCode('')
+    //   setLabPrice('')
+    // }
+
   }
 
 
@@ -71,9 +103,9 @@ function UserForm() {
         </div>
         <div className='label_input_container submit_section'>
           <label htmlFor="">Price</label>
-          <input type="text" placeholder='2.02' value={labPrice} onChange={(event) => setLabPrice(event.target.value)}/>
+          <input type="number" placeholder='2.02' value={labPrice} onChange={(event) => setLabPrice(event.target.value)}/>
           <div className='form_btn_container'>
-            <button type='submit' className='submit_button' disabled={!labName || !labType || !mainCategory || !subCategory ||!labCode ||!labPrice} style={(!labName || !labType || !mainCategory || !subCategory ||!labCode ||!labPrice) ? {cursor: "not-allowed"} : {cursor: "pointer"}}><IoMdAdd />ADD</button>
+            <button type='submit' className='submit_button'><IoMdAdd />ADD</button>
           </div>
         </div>
       </form>

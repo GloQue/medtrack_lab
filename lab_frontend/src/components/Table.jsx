@@ -6,14 +6,17 @@ import { MdDelete } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteLabData, fetchLabData } from '../store/thunk';
 import '../components/Table.css'
+import { useSnackbar } from 'notistack';
 
 
 function Table({data}) {
 const dispatch = useDispatch();
+const {enqueueSnackbar} = useSnackbar();
 
 const handleDelete = (id) => {
   if (window.confirm('Are you sure you want to delete this item?')) {
     dispatch(deleteLabData(id));
+    enqueueSnackbar('Lab Deleted Successfully', {variant: 'success'})
   }
 };
 

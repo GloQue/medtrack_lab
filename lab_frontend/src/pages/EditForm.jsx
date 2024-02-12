@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { fetchLabData, updateLabData } from '../store/thunk';
 import '../components/EditForm.css'
+import { useSnackbar } from 'notistack';
 
 function EditForm() {
     const dispatch = useDispatch();
@@ -10,13 +11,14 @@ function EditForm() {
     const labData = useSelector(state => state.lab.labInfo);
 
     const {id} = useParams();
+    const {enqueueSnackbar} = useSnackbar();
 
     const [labName, setLabName] = useState('');
     const [labType, setLabType] = useState('');
     const [mainCategory, setMainCategory] = useState('');
     const [subCategory, setSubCategory] = useState('');
     const [labCode, setLabCode] = useState('');
-    const [labPrice, setLabPrice] = useState('');
+    const [labPrice, setLabPrice] = useState(0);
 
     useEffect(() => {
         const filteredData = labData.filter((item) => item._id === id)
@@ -43,6 +45,7 @@ function EditForm() {
         };
     
         dispatch(updateLabData(id, updatedLabData));
+        enqueueSnackbar('Lab Updated Successfully', {variant: 'success'})
     };
     
    
@@ -80,7 +83,7 @@ function EditForm() {
             </div>
             <div className='edit_label_input_container edit_submit_section'>
                 <label htmlFor="">Price</label>
-                <input type="text" placeholder='2.02' value={labPrice} onChange={(event) => setLabPrice(event.target.value)}/>
+                <input type="number" placeholder='2.02' value={labPrice} onChange={(event) => setLabPrice(event.target.value)}/>
                 <div className='edit_form_btn_container'>
                     <button className='edit_submit_button' type='button' style={{cursor: "pointer"}} onClick={() => handleEdit(id)}>EDIT</button>
                 </div>

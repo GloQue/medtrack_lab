@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import Nav from '../components/Nav'
 import UserForm from '../components/UserForm'
 import { fetchLabData } from '../store/thunk'
-import ShowOptions from '../components/ShowOptions'                           
+import ShowOptions from '../components/ShowOptions'
+import { useSnackbar } from 'notistack';                           
 
 
 function Home() {
@@ -13,6 +14,8 @@ function Home() {
   const [inputVal, setInputVal] = useState('');
   const [filteredData, setFilteredData] = useState([]);
   const [inputData, setInputData] = useState([])
+
+  const {enqueueSnackbar} = useSnackbar();
   console.log({data})
 
 
@@ -24,6 +27,7 @@ function Home() {
     setInputData(data);
   }, [data]);
  
+
   const handleOnChange = (event) => {
     const inputValue = event.target.value;
     setInputVal(inputValue);
@@ -31,11 +35,14 @@ function Home() {
     if (inputValue.trim() === '') {
       setFilteredData([]);
     } else {
-      const filtered = inputData.filter(item => item && item.labName && item.labName.toLowerCase().includes(inputValue.toLowerCase()));
-      setFilteredData(filtered);
+      const filtered = inputData.filter((item) => item && item.labName && item.labName.toLowerCase().includes(inputValue.toLowerCase()));
+      if (filtered.length > 0) {
+        setFilteredData(filtered);
+      } else {
+        enqueueSnackbar('No items match your search');
+      }
     }
   };
-
   
   
 

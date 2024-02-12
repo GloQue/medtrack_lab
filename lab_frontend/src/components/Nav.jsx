@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
 import '../components/Nav.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchLabData } from '../store/thunk';
-import ShowOptions from './ShowOptions';
 
 function Nav({handleOnChange}) {
   return (
