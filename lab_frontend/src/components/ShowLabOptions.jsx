@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './ShowOptions.css'
 
-function ShowOptions({filteredData}) {
+function ShowLabOptions({filteredData}) {
   const navigate = useNavigate();
   const handleClick = (id) => {
     navigate(`/showlabinfo/${id}`)
@@ -18,4 +18,4 @@ function ShowOptions({filteredData}) {
   )
 }
 
-export default ShowOptions
+export default ShowLabOptions

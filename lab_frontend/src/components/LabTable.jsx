@@ -9,7 +9,7 @@ import '../components/Table.css'
 import { useSnackbar } from 'notistack';
 
 
-function Table({data}) {
+function LabTable({data}) {
 const dispatch = useDispatch();
 const {enqueueSnackbar} = useSnackbar();
 
@@ -48,7 +48,7 @@ const handleDelete = (id) => {
                     <td>
                       <div className='table_icons_container' style={{display: "flex", gap: "1rem", justifyContent: "center"}}>
                         <Link className='view_btn' to={`/showlabinfo/${tableInfo._id}`}><MdOutlinePreview /></Link>
-                        <Link className='edit_btn' to={`/editform/${tableInfo._id}`}><CiEdit /></Link>
+                        <Link className='edit_btn' to={`/editlabform/${tableInfo._id}`}><CiEdit /></Link>
                         <MdDelete className='delete_btn' onClick={() => handleDelete(tableInfo._id)}/>
                       </div>
                     </td>
@@ -61,4 +61,4 @@ const handleDelete = (id) => {
   )
 }
 
-export default Table
+export default LabTable

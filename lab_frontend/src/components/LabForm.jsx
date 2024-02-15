@@ -7,7 +7,7 @@ import '../components/UserForm.css'
 import { useSnackbar } from 'notistack';
 
 
-function UserForm() {
+function LabForm() {
   const dispatch = useDispatch();
   const {enqueueSnackbar} = useSnackbar();
 
@@ -114,4 +114,4 @@ function UserForm() {
   )
 }
 
-export default UserForm
+export default LabForm

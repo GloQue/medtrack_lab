@@ -24,10 +24,10 @@ const createDrug = asyncHandler(async (req, res) => {
   if (!drugName || !description || !unitPrice || !drugCode || !drugPrice) {
     return res.status(400).json({ msg: "All fields are required" });
   }
-  const drugExist = await Drug.findOne({ drugName });
-  if (drugExist) {
-    return res.status(409).json({ mgs: "Drug already exist" });
-  }
+  // const drugExist = await Drug.findOne({ drugName });
+  // if (drugExist) {
+  //   return res.status(409).json({ mgs: "Drug already exist" });
+  // }
 
   const addDrug = await Drug.create({
     drugName,

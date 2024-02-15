@@ -16,11 +16,12 @@ const drugSchema = mongoose.Schema({
   drugCode: {
     type: String,
     required: [true, "Drug code empty."],
+    set: (value) => value.toUpperCase(),
   },
   drugPrice: {
     type: Number,
     required: true,
   },
-});
+}, {timestamps: true});
 
 module.exports = mongoose.model("Drug", drugSchema);

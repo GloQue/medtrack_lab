@@ -5,7 +5,7 @@ import { fetchLabData, updateLabData } from '../store/thunk';
 import '../components/EditForm.css'
 import { useSnackbar } from 'notistack';
 
-function EditForm() {
+function EditLabForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const labData = useSelector(state => state.lab.labInfo);
@@ -93,4 +93,4 @@ function EditForm() {
   )
 }
 
-export default EditForm
+export default EditLabForm

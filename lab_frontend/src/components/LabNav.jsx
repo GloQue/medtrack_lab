@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import "../components/Nav.css";
 
-function Nav({ handleOnChange }) {
+function LabNav({ handleOnChange }) {
   return (
     <nav className="nav_bar">
       <div className="nav_bar_menu">
@@ -18,16 +18,13 @@ function Nav({ handleOnChange }) {
         <Link to={"/"}>
           <li>Home</li>
         </Link>
-
-        <Link to={"/lab"}>
-          <li>Labs</li>
-        </Link>
+        
       </div>
       <div className="nav_bar_searchContainer">
         <input
           type="search"
           className="nav_bar_search"
-          placeholder="Search by Name or Code"
+          placeholder="Search lab name"
           onChange={handleOnChange}
         />
         <CiSearch className="nav_search_icon" />
@@ -36,4 +33,4 @@ function Nav({ handleOnChange }) {
   );
 }
 
-export default Nav;
+export default LabNav;

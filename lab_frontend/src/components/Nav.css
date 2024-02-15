@@ -13,6 +13,7 @@
   .nav_bar_menu{
     display: flex;
     gap: 1rem;
+    align-items: center;
   }
   
   .nav_bar .nav_bar_menu span a{
