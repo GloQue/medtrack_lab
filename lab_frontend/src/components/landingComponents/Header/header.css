@@ -1,0 +1,43 @@
+nav {
+  background: #346bae;
+  padding: 20px;
+}
+.nav-data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  object-fit: contain;
+  width: 120px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.navLinks li {
+  margin-left: 15px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+@media only screen and (min-width: 860px) {
+  .logo {
+    width: 150px;
+  }
+
+  .nav-data {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .navLinks li {
+    margin-left: 35px;
+    font-size: 18px;
+  }
+}

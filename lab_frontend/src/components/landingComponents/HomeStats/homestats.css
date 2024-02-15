@@ -1,0 +1,42 @@
+.homestats {
+  background: #d4ecf7;
+  padding: 4rem 0.3rem;
+}
+
+.homestat-main {
+  width: 80%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.homestat-info {
+  font-size: 30px;
+  color: #00bcd1;
+  width: min-content;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.homestat-info h4 {
+  color: #346bae;
+  font-size: 28px;
+}
+
+@media only screen and (min-width: 760px) {
+  .homestat-main {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .homestat-info {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 0.9rem;
+  }
+}

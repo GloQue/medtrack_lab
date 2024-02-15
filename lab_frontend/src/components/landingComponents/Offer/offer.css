@@ -1,0 +1,75 @@
+.offer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.offer-1,
+.offer-2,
+.offer-3 {
+  background: #346bae;
+  color: white;
+  display: flex;
+  gap: 1rem;
+  padding: 5%;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+.offer-2 {
+  background: #3d7dcc;
+}
+
+.offer-3 {
+  background: #00bcd1;
+}
+
+.icon {
+  object-fit: contain;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+i:hover {
+  scale: 1.1;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.9rem;
+}
+
+.info h3 {
+  font-size: 24px;
+}
+
+.info p {
+  font-size: 20px;
+  font-weight: 300;
+  white-space: initial;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.rule {
+  width: 50px;
+  height: 1px;
+  background: white;
+}
+
+@media only screen and (min-width: 1200px) {
+  .offer-1,
+  .offer-2,
+  .offer-3 {
+    width: 25%;
+  }
+
+  .offer {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    top: -3rem;
+    flex-wrap: nowrap;
+  }
+}

@@ -1,0 +1,56 @@
+.about-main {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.img {
+  display: none;
+}
+
+.about-info {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.about-us,
+.sub-title {
+  margin: 2.5% 0;
+  font-size: 20px;
+  font-weight: lighter;
+  color: #6b6b70;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.title {
+  font-weight: 900;
+  font-size: 25px;
+}
+
+.list-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.list-group p {
+  font-size: large;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.fa-check {
+  color: #346bae;
+}
+
+.btn {
+  width: max-content;
+}
+
+@media only screen and (min-width: 1200px) {
+  .about-main {
+    width: 80%;
+  }
+  .img {
+    display: flex;
+  }
+}

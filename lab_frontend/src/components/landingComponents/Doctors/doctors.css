@@ -1,0 +1,50 @@
+.docs-main {
+  padding: 3rem 1rem;
+  /* width: 80%;
+  margin: 0 auto; */
+}
+
+.our-doctors {
+  margin: 2% 0;
+  font-size: 20px;
+  font-weight: lighter;
+  color: #6b6b70;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.doc-title {
+  font-weight: 900;
+  font-size: 25px;
+  margin-bottom: 2rem;
+}
+
+.docs-div {
+  display: flex;
+  gap: 1rem;
+  overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.doc-info img {
+  border-radius: 10px;
+}
+
+.doc-details {
+  padding: 1rem 2rem;
+}
+.doc-details h4,
+.doc-details p {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: larger;
+}
+
+@media only screen and (min-width: 1200px) {
+  .docs-main {
+    padding: 3rem;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
