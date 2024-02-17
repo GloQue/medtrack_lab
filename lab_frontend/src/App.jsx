@@ -12,6 +12,8 @@ import Labs from "./pages/Labs";
 import LabTable from "./components/LabTable";
 import EditLabForm from "./pages/EditLabForm";
 import LabForm from "./components/LabForm";
+import EditPharmacyForm from "./pages/EditPharmacyForm";
+import ShowPharmacyInfo from "./pages/ShowPharmacyInfo";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +25,8 @@ const router = createBrowserRouter(
       <Route path="/labtabledata" element={<LabTable />} />
       <Route path="/editlabform/:id" element={<EditLabForm />} />
       <Route path="/showlabinfo/:id" element={<ShowLabInfo />} />
+      <Route path="/editpharmacyform/:id" element={<EditPharmacyForm />} />
+      <Route path="/showpharmacyinfo/:id" element={<ShowPharmacyInfo />} />
     </Route>
   )
 );

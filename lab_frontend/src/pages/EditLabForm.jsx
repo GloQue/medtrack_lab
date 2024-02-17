@@ -57,7 +57,7 @@ function EditLabForm() {
         <button className='back_to_home_btn'><Link to='/' style={{textDecoration: "none", color: "white"}}>Back to home</Link></button>
         <form>
             <div className='edit_label_input_container'>
-                <label htmlFor="">Lab Item Name</label>
+                <label htmlFor="">Lab Name</label>
                 <input type="text" placeholder='Type lab name here' value={labName} onChange={(event) => setLabName(event.target.value)}/>
             </div>
             <div className='edit_label_input_container edit_select_section'>
@@ -78,7 +78,7 @@ function EditLabForm() {
                 <input type="text" placeholder='Head and Skull' value={subCategory} onChange={(event) => setSubCategory(event.target.value)}/>
             </div>
             <div className='edit_label_input_container'>
-                <label htmlFor="">Lab Item Code</label>
+                <label htmlFor="">Lab Code</label>
                 <input type="text" placeholder='Aoc123FH' value={labCode} onChange={(event) => setLabCode(event.target.value)}/>
             </div>
             <div className='edit_label_input_container edit_submit_section'>

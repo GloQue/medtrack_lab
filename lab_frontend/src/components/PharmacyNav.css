@@ -1,5 +1,5 @@
-.nav_bar{
-    background-color: rgb(8,113,179);
+.nav_bar_pharmacy{
+    background-color: rgb(41,131,123);
     padding: 1rem 3rem;
     display: flex;
     justify-content: space-between;
@@ -10,24 +10,24 @@
     right: 0;
   }
   
-  .nav_bar_menu{
+  .nav_bar_menu_pharmacy{
     display: flex;
     gap: 1rem;
     align-items: center;
   }
   
-  .nav_bar .nav_bar_menu span a{
+  .nav_bar_pharmacy .nav_bar_menu_pharmacy a{
     color: white;
     font-size: 1.2rem;
     text-decoration: none;
   }
   
-  .nav_bar_searchContainer{
+  .nav_bar_searchContainer_pharmacy{
     position: relative;
     width: 20%;
   }
   
-  .nav_bar_searchContainer .nav_bar_search{
+  .nav_bar_searchContainer_pharmacy .nav_bar_search_pharmacy{
     padding: 0.5rem 2rem;
     border: none;
     border-radius: 5px;
@@ -35,7 +35,7 @@
   }
   
   
-  .nav_search_icon{
+  .nav_search_icon_pharmacy{
     color: grey;
     position: absolute;
     left: 5px;
@@ -44,18 +44,18 @@
 
   /* --------------------------------------------MEDIA QUERIES--------------------------------- */
   @media screen and (max-width: 650px) {
-    .nav_bar{
+    .nav_bar_pharmacy{
       padding: 1rem 1rem;
       justify-content: space-between;
     }
     
-    .nav_bar a{
+    .nav_bar_pharmacy a{
       color: grey;
       text-decoration: none;
       font-size: 1rem;
     }
     
-    .nav_bar_searchContainer{
+    .nav_bar_searchContainer_pharmacy{
       width: 50%;
     }
 }

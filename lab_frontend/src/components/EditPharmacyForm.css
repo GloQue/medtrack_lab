@@ -1,0 +1,61 @@
+.edit_form_container_pharmacy{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.edit_form_container_pharmacy form{
+    border: 1px solid rgb(186,218,214);
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 40%;
+    padding: 3rem;
+}
+
+.edit_label_input_container_pharmacy label{
+    display: block;
+    color: rgb(106,162,155);
+}
+
+.edit_label_input_container_pharmacy input{
+    border: 1px solid black;
+    padding: 0.5rem 1rem;
+    width: 100%;
+}
+
+.edit_label_input_container_pharmacy input::placeholder{
+    color: rgb(223,227,230);
+}
+  
+.edit_form_btn_container_pharmacy{
+    width: 50%;
+    margin: 1rem auto;
+}
+  
+.edit_submit_button_pharmacy{
+    background-color: rgb(41,131,123);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+}
+
+.back_to_home_btn_pharmacy{
+    min-width: 10%;
+    background-color: rgb(41,131,123);
+    padding: 0.5rem 1rem;
+    border: none;
+}
+
+/* --------------------------------------------MEDIA QUERIES--------------------------------- */
+@media screen and (max-width: 650px) {
+    .edit_form_container_pharmacy form{
+        width: 90%;
+    }
+}

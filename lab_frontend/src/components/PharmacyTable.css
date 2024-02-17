@@ -1,0 +1,79 @@
+.table_container_pharmacy{
+    padding: 3rem 0;
+    margin: 0 auto;
+  }
+  
+  .table_container_pharmacy table{
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid rgb(217, 228, 236);
+  }
+  
+  .table_container_pharmacy table thead{
+    background-color: rgb(241,242,246);
+  }
+  
+  .table_container_pharmacy table thead tr th{
+    padding: 1rem 2rem;
+    color: rgb(41,131,123);
+  }
+  
+  .table_container_pharmacy table tbody tr td{
+    font-size: 1.1rem;
+    color: #31BBC0;
+    padding: 1rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid rgb(217, 228, 236);
+  }
+  
+  .table_icons_container_pharmacy *{
+    color: rgb(41,131,123);
+    font-size: 1.3rem;
+  }
+  
+  .table_icons_container_pharmacy .delete_btn_pharmacy{
+    cursor: pointer;
+  }
+
+
+    /* --------------------------------------------MEDIA QUERIES--------------------------------- */
+  @media screen and (max-width: 650px) {
+    .table_container_pharmacy{
+        border: none;
+        margin-top: 3rem;
+      }
+      
+      .table_container_pharmacy table{
+        border: none;
+      }
+      
+      .table_container_pharmacy table tbody, .table_container_pharmacy table tr, .table_container_pharmacy table td{
+        display: block;
+        width: 100%;
+      }
+      
+      .table_container_pharmacy table tbody tr{
+        margin-bottom: 2rem;
+        border: 1px solid white;
+      }
+      
+      .table_container_pharmacy table thead{
+        display: none;
+      }
+        
+      .table_container_pharmacy table tbody td{
+        border: 1px solid white;
+      }
+      
+      .table_container_pharmacy table tbody tr td{
+        font-size: 1rem;
+        padding: 0.2rem 0;
+        background-color: rgb(41,131,123);
+        color: white;
+      }
+
+      .table_icons_container_pharmacy *{
+        color: white;
+      }
+      
+  }

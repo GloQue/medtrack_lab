@@ -81,7 +81,7 @@ export const deleteLabData = (id) => async(dispatch, getState) => {
 
     const data = await response.json();
     dispatch({type: DELETE_LAB_DATA, payload: data});
-    dispatch(fetchLabData());
+    // dispatch(fetchLabData());
     
     return data;
    } catch (error) {
@@ -140,10 +140,11 @@ export const fetchOneDrugData = (id) => async(dispatch, getState) => {
     }
 }
 
-export const updateDrugData = (id) => async(dispatch, getState) => {
+export const updateDrugData = (id, pharmData) => async(dispatch, getState) => {
     try {
         const response = await fetch(`http://localhost:5001/api/drugs/${id}`, {
             method: 'PUT',
+            body: JSON.stringify(pharmData),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -167,6 +168,7 @@ export const deleteDrugData = (id) => async(dispatch, getState) => {
 
         const data = await response.json()
         dispatch({type: DELETE_PHARMACY_DATA, payload: data})
+        // dispatch(fetchDrugData())
     } catch (error) {
         console.log(error)
     }

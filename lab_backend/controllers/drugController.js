@@ -54,8 +54,9 @@ const updateDrug = asyncHandler(async (req, res) => {
 
 const deleteDrug = asyncHandler(async (req, res) => {
   const { id } = req.params;
-  await Drug.findByIdAndDelete(id);
-  return res.status(200).json({ message: `Delete drug for ${req.params.id}` });
+  const deletedDrug = await Drug.findByIdAndDelete(id);
+  // return res.status(200).json({ message: `Delete drug for ${req.params.id}` });
+  res.send(deletedDrug)
 });
 
 module.exports = {

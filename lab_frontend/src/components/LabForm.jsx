@@ -79,7 +79,7 @@ function LabForm() {
     <div className='form_container'>
       <form onSubmit={handleSubmit}>
         <div className='label_input_container select_section'>
-          <label htmlFor="">Lab Item Name</label>
+          <label htmlFor="">Lab Name</label>
           <input type="text" placeholder='Type lab name here' value={labName} onChange={(event) => setLabName(event.target.value)}/>
           <select name="" id="" value={labType} onChange={(event) => setLabType(event.target.value)}>
             {
@@ -98,7 +98,7 @@ function LabForm() {
           <input type="text" placeholder='Head and Skull' value={subCategory} onChange={(event) => setSubCategory(event.target.value)}/>
         </div>
         <div className='label_input_container'>
-          <label htmlFor="">Lab Item Code</label>
+          <label htmlFor="">Lab Code</label>
           <input type="text" placeholder='Aoc123FH' value={labCode} onChange={(event) => setLabCode(event.target.value)}/>
         </div>
         <div className='label_input_container submit_section'>

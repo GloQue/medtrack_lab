@@ -3,17 +3,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
-import "../components/Nav.css";
+import "../components/LabNav.css";
 
 function LabNav({ handleOnChange }) {
   return (
     <nav className="nav_bar">
       <div className="nav_bar_menu">
-        <span>
           <NavLink activeclassname="active" to="/">
             MedTrack
           </NavLink>
-        </span>
 
         <Link to={"/"}>
           <li>Home</li>

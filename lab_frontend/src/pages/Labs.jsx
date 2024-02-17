@@ -16,8 +16,7 @@ function Labs() {
   const [inputData, setInputData] = useState([]);
 
   const { enqueueSnackbar } = useSnackbar();
-  console.log({ data });
-
+  
   useEffect(() => {
     dispatch(fetchLabData());
   }, [dispatch]);

@@ -3,20 +3,29 @@ import { useDispatch, useSelector } from 'react-redux'
 import { MdOutlinePreview } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
-import { fetchDrugData } from '../store/thunk';
+import { deleteDrugData, fetchDrugData } from '../store/thunk';
 import { Link } from 'react-router-dom';
+import './PharmacyTable.css'
+import { useSnackbar } from 'notistack';
 
 function PharmacyTable() {
     const dispatch = useDispatch();
+    const {enqueueSnackbar} = useSnackbar();
     const drugData = useSelector((state) => state.pharmacy.pharmacyInfo)
-    console.log(drugData)
 
     useEffect(() => {
         dispatch(fetchDrugData())
     }, [dispatch])
 
+    const handleDelete = (id) => {
+      if(window.confirm('Are you sure you want to delete this data?')){
+        dispatch(deleteDrugData(id))
+        enqueueSnackbar('Drug removed successfully', {variant: 'success'})
+      }
+    }
+
   return (
-    <div className='table_container'>
+    <div className='table_container_pharmacy'>
     <table>
         <thead>
           <tr>
@@ -30,22 +39,28 @@ function PharmacyTable() {
         </thead>
         <tbody>
            {
-            drugData.map((tableInfo, index) => (
-              <tr key={tableInfo._id}>
-                <td>{tableInfo.drugName}</td>
-                <td>{tableInfo.description}</td>
-                <td>{tableInfo.unitPrice}</td>
-                <td>{tableInfo.drugCode}</td>
-                <td>{tableInfo.drugPrice}</td>
-                <td>
-                  <div className='table_icons_container' style={{display: "flex", gap: "1rem", justifyContent: "center"}}>
-                    <Link className='view_btn'><MdOutlinePreview /></Link>
-                    <Link className='edit_btn'><CiEdit /></Link>
-                    <MdDelete className='delete_btn' />
-                  </div>
-                </td>
-            </tr>
+            drugData.length > 0 ? (
+              <>
+              {
+                drugData.map((tableInfo, index) => (
+                  <tr key={tableInfo._id}>
+                    <td>{tableInfo.drugName}</td>
+                    <td>{tableInfo.description}</td>
+                    <td>{tableInfo.unitPrice}</td>
+                    <td>{tableInfo.drugCode}</td>
+                    <td>{tableInfo.drugPrice}</td>
+                    <td>
+                      <div className='table_icons_container_pharmacy' style={{display: "flex", gap: "1rem", justifyContent: "center"}}>
+                        <Link className='view_btn_pharmacy' to={`/showpharmacyinfo/${tableInfo._id}`}><MdOutlinePreview /></Link>
+                        <Link className='edit_btn_pharmacy' to={`/editpharmacyform/${tableInfo._id}`}><CiEdit /></Link>
+                        <MdDelete className='delete_btn_pharmacy' onClick={() => handleDelete(tableInfo._id)}/>
+                      </div>
+                    </td>
+                  </tr>
             ))
+           }
+              </>
+            ) : (<>Please add a drug</>)
            }
         </tbody>
       </table>
