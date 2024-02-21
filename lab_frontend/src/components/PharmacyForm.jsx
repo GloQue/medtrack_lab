@@ -1,19 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addDrugData } from '../store/thunk';
+import { addDrugData, fetchDrugData } from '../store/thunk';
 import './PharmacyForm.css'
 import { useSnackbar } from 'notistack';
+import PharmacyStats from './PharmacyStats';
 
 
 function PharmacyForm() {
     const dispatch = useDispatch();
     const {enqueueSnackbar} = useSnackbar();
+    const pharmacyData = useSelector((state) => state.pharmacy.pharmacyInfo);
 
     const [drugName, setDrugName] = useState('');
     const [description, setDescription] = useState('');
     const [unitPrice, setUnitPrice] = useState('');
     const [drugCode, setDrugCode] = useState('');
     const [drugPrice, setDrugPrice] = useState('');
+
+    useEffect(() => {
+      dispatch(fetchDrugData())
+    }, [dispatch])
 
 
     const handleDrugSubmission = (event) => {
@@ -59,7 +65,7 @@ function PharmacyForm() {
         </div>
         <div className='label_input_container_pharmacy'>
           <label htmlFor="">Description</label>
-          <input type="text" placeholder='Drug Description' value={description} onChange={(event) => setDescription(event.target.value)}/>
+          <textarea name="" id="" cols="6" rows="3" value={description} onChange={(event) => setDescription(event.target.value)} placeholder='Enter drug description'></textarea>
         </div>
         <div className='label_input_container_pharmacy'>
           <label htmlFor="">Unit Of Pricing</label>
@@ -71,13 +77,15 @@ function PharmacyForm() {
         </div>
         <div className='label_input_container_pharmacy submit_section_pharmacy'>
           <label htmlFor="">Drug Price</label>
-          <input type="number" placeholder='Enter price of drug' value={drugPrice} onChange={(event) => setDrugPrice(event.target.value)} />
+          <input type="number" placeholder='Price of drug in GHS' value={drugPrice} onChange={(event) => setDrugPrice(event.target.value)} />
           <div className='form_btn_container_pharmacy'>
-            <button type='submit' className='submit_button_pharmacy'>ADD</button>
+            <button type='submit' className='submit_button_pharmacy'>+ ADD</button>
           </div>
         </div>
       </form>
-      <div className='stats_container_pharmacy'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veniam, magni iusto aliquam reiciendis suscipit deleniti sequi. Praesentium dignissimos architecto esse fuga quia! Quae aut cum incidunt commodi temporibus voluptas fugiat tempora minima alias, error quos enim at dolor quo porro voluptatum quisquam voluptates, saepe dolore. Esse ab et voluptate.</div>
+      <div className='stats_container_pharmacy'>
+        <PharmacyStats pharmacyData={pharmacyData} />
+      </div>
     </div>
   )
 }

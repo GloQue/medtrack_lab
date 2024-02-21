@@ -13,9 +13,13 @@ function LabNav({ handleOnChange }) {
             MedTrack
           </NavLink>
 
-        <Link to={"/"}>
-          <li>Home</li>
-        </Link>
+          <Link to={"/pharmacy"}>
+            <span>Pharmacy</span>
+          </Link>
+
+          <Link to={"/"}>
+            <span>Home</span>
+          </Link>
         
       </div>
       <div className="nav_bar_searchContainer">

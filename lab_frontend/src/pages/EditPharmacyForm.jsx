@@ -55,7 +55,7 @@ function EditPharmacyForm() {
 
   return (
     <div className='edit_form_container_pharmacy'>
-    <button className='back_to_home_btn_pharmacy'><Link to='/' style={{textDecoration: "none", color: "white"}}>Back to home</Link></button>
+    <button className='back_to_home_btn_pharmacy'><Link to='/pharmacy' style={{textDecoration: "none", color: "white"}}>Back to pharmacy page</Link></button>
     <form>
         <div className='edit_label_input_container_pharmacy'>
             <label htmlFor="">Drug Name</label>

@@ -54,7 +54,7 @@ function EditLabForm() {
 
   return (
     <div className='edit_form_container'>
-        <button className='back_to_home_btn'><Link to='/' style={{textDecoration: "none", color: "white"}}>Back to home</Link></button>
+        <button className='back_to_home_btn'><Link to='/labs' style={{textDecoration: "none", color: "white"}}>Back to labs page</Link></button>
         <form>
             <div className='edit_label_input_container'>
                 <label htmlFor="">Lab Name</label>

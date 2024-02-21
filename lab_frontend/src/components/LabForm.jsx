@@ -1,22 +1,29 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addLabData } from '../store/thunk';
+import { addLabData, fetchLabData } from '../store/thunk';
 import { IoMdAdd } from "react-icons/io";
 import '../components/UserForm.css'
 import { useSnackbar } from 'notistack';
+import LabStats from './LabStats';
 
 
 function LabForm() {
+  const labData = useSelector((state) => state.lab.labInfo)
   const dispatch = useDispatch();
   const {enqueueSnackbar} = useSnackbar();
+
 
   const [labName, setLabName] = useState('');
   const [labType, setLabType] = useState('');
   const [mainCategory, setMainCategory] = useState('');
   const [subCategory, setSubCategory] = useState('');
   const [labCode, setLabCode] = useState('');
-  const [labPrice, setLabPrice] = useState(0);
+  const [labPrice, setLabPrice] = useState('');
+
+  useEffect(() => {
+    dispatch(fetchLabData())
+  }, [dispatch])
   
  
 
@@ -55,7 +62,7 @@ function LabForm() {
       setMainCategory('')
       setSubCategory('')
       setLabCode('')
-      setLabPrice(0)
+      setLabPrice('')
     }
 
     // if(!labName || !labType || !mainCategory || !subCategory || !labCode || !labPrice){
@@ -109,7 +116,9 @@ function LabForm() {
           </div>
         </div>
       </form>
-      <div className='stats_container'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veniam, magni iusto aliquam reiciendis suscipit deleniti sequi. Praesentium dignissimos architecto esse fuga quia! Quae aut cum incidunt commodi temporibus voluptas fugiat tempora minima alias, error quos enim at dolor quo porro voluptatum quisquam voluptates, saepe dolore. Esse ab et voluptate.</div>
+      <div className='stats_container'>
+        <LabStats labData={labData}/>
+      </div>
     </div>
   )
 }

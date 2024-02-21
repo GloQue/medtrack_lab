@@ -8,10 +8,9 @@ import { Link } from 'react-router-dom';
 import './PharmacyTable.css'
 import { useSnackbar } from 'notistack';
 
-function PharmacyTable() {
+function PharmacyTable({data}) {
     const dispatch = useDispatch();
     const {enqueueSnackbar} = useSnackbar();
-    const drugData = useSelector((state) => state.pharmacy.pharmacyInfo)
 
     useEffect(() => {
         dispatch(fetchDrugData())
@@ -33,16 +32,16 @@ function PharmacyTable() {
             <th>Description</th>
             <th>Unit of Pricing</th>
             <th>Drug Code</th>
-            <th>Price</th>
+            <th>Price(GH&#8373;)</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
            {
-            drugData.length > 0 ? (
+            data.length > 0 ? (
               <>
               {
-                drugData.map((tableInfo, index) => (
+                data.map((tableInfo, index) => (
                   <tr key={tableInfo._id}>
                     <td>{tableInfo.drugName}</td>
                     <td>{tableInfo.description}</td>

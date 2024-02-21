@@ -14,8 +14,6 @@
   }
   
   .stats_container{
-    width: 200px;
-    height: 200px;
     background-color: white;
     flex-basis: 30%;
   }
@@ -75,7 +73,7 @@
 
   
   /* --------------------------------------------MEDIA QUERIES--------------------------------- */
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 800px) {
     .form_container{
         background-color: rgb(241,242,246);
         padding: 1rem;
@@ -93,7 +91,54 @@
       
       .stats_container{
         width: 100%;
-        min-height: 250px;
+      }
+      
+      .label_input_container{
+        flex-direction: column;
+        align-items: start;
+        gap: 0.5rem;
+        width: 100%;
+      }
+      
+      .label_input_container input, .label_input_container select{
+        border: 1px solid rgb(217, 228, 236);
+        padding: 0.5rem 1rem;
+        width: 100%;
+      }
+      
+      .label_input_container.select_section input, .label_input_container.select_section select{
+       width: 100%;
+      }
+      
+      .form_btn_container{
+        width: 50%;
+        margin: 0 auto;
+      }
+      
+      .submit_button{
+        width: 100%;
+      }
+  }
+
+
+  @media screen and (max-width: 1530px) and (min-width: 800px) {
+    .form_container{
+        background-color: rgb(241,242,246);
+        padding: 1rem;
+        gap: 2rem;
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .form_container form{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+      }
+      
+      .stats_container{
+        width: 100%;
       }
       
       .label_input_container{

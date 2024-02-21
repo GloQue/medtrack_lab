@@ -51,7 +51,7 @@ function Labs() {
       <LabNav handleOnChange={handleOnChange} />
       <ShowLabOptions filteredData={filteredData} />
       <div style={{ padding: "2rem 3rem" }}>
-        <h1>Inventory Management System</h1>
+        <h1 className="lab_heading">Lab Inventory Management System</h1>
         <LabForm />
         <LabTable data={data} />
       </div>

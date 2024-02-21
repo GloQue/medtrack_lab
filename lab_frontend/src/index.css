@@ -14,8 +14,14 @@ body{
   font-family: 'Poppins', sans-serif;
 }
 
-h1{
+.lab_heading{
   color: rgb(90,130,156);
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.pharmacy_heading{
+  color: rgb(158, 187, 168);
   font-weight: 500;
   margin-bottom: 2rem;
 }
