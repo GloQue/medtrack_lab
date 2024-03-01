@@ -19,11 +19,15 @@ nav {
   color: white;
 }
 
-.navLinks li {
+.navLinks span {
   margin-left: 15px;
   cursor: pointer;
   font-weight: 500;
   font-size: 18px;
+}
+
+.navLinks a span{
+  color: white;
 }
 
 @media only screen and (min-width: 860px) {

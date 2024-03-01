@@ -42,6 +42,12 @@
   .label_input_container select{
     color: grey;
   }
+
+  .label_input_container.select_section.category select{
+    width: 100%;
+    flex-basis: 60%;
+    color: grey;
+  }
   
   .label_input_container.submit_section input{
     flex-basis: 49%;
@@ -117,6 +123,7 @@
       
       .submit_button{
         width: 100%;
+        margin-top: 1rem;
       }
   }
 
@@ -165,5 +172,6 @@
       
       .submit_button{
         width: 100%;
+        margin-top: 1rem;
       }
   }

@@ -1,4 +1,4 @@
-import { ADD_PHARMACY_DATA, DELETE_PHARMACY_DATA, FETCH_PHARMACY_DATA, UPDATE_PHARMACY_DATA } from "../actions";
+import { ADD_PHARMACY_DATA, DELETE_PHARMACY_DATA, FETCH_A_DRUG, FETCH_PHARMACY_DATA, UPDATE_PHARMACY_DATA } from "../actions";
 
 const initialState = {
     pharmacyInfo: []
@@ -11,6 +11,10 @@ export const pharmacyReducer = (state = initialState, action) => {
         }
 
         case FETCH_PHARMACY_DATA: {
+            return {pharmacyInfo: action.payload}
+        }
+
+        case FETCH_A_DRUG: {
             return {pharmacyInfo: action.payload}
         }
 

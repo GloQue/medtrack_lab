@@ -13,6 +13,8 @@ function EditLabForm() {
     const {id} = useParams();
     const {enqueueSnackbar} = useSnackbar();
 
+    const filteredData = labData.filter((item) => item._id === id);
+
     const [labName, setLabName] = useState('');
     const [labType, setLabType] = useState('');
     const [mainCategory, setMainCategory] = useState('');
@@ -21,7 +23,6 @@ function EditLabForm() {
     const [labPrice, setLabPrice] = useState(0);
 
     useEffect(() => {
-        const filteredData = labData.filter((item) => item._id === id)
 
         filteredData.map((item) => {
             setLabName(item.labName),
@@ -46,6 +47,7 @@ function EditLabForm() {
     
         dispatch(updateLabData(id, updatedLabData));
         enqueueSnackbar('Lab Updated Successfully', {variant: 'success'})
+        navigate('/labs')
     };
     
    

@@ -44,6 +44,10 @@
   font-family: "Nunito Sans", sans-serif;
 }
 
+.btn:nth-of-type(1){
+  margin-bottom: 1rem;
+}
+
 .outlined {
   background: transparent;
   color: #346bae;

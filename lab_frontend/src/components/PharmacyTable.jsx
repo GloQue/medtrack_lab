@@ -8,20 +8,12 @@ import { Link } from 'react-router-dom';
 import './PharmacyTable.css'
 import { useSnackbar } from 'notistack';
 
-function PharmacyTable({data}) {
+function PharmacyTable({data, handleOpenModal}) {
     const dispatch = useDispatch();
-    const {enqueueSnackbar} = useSnackbar();
 
     useEffect(() => {
         dispatch(fetchDrugData())
     }, [dispatch])
-
-    const handleDelete = (id) => {
-      if(window.confirm('Are you sure you want to delete this data?')){
-        dispatch(deleteDrugData(id))
-        enqueueSnackbar('Drug removed successfully', {variant: 'success'})
-      }
-    }
 
   return (
     <div className='table_container_pharmacy'>
@@ -52,7 +44,7 @@ function PharmacyTable({data}) {
                       <div className='table_icons_container_pharmacy' style={{display: "flex", gap: "1rem", justifyContent: "center"}}>
                         <Link className='view_btn_pharmacy' to={`/showpharmacyinfo/${tableInfo._id}`}><MdOutlinePreview /></Link>
                         <Link className='edit_btn_pharmacy' to={`/editpharmacyform/${tableInfo._id}`}><CiEdit /></Link>
-                        <MdDelete className='delete_btn_pharmacy' onClick={() => handleDelete(tableInfo._id)}/>
+                        <MdDelete className='delete_btn_pharmacy' onClick={() => handleOpenModal(tableInfo._id)}/>
                       </div>
                     </td>
                   </tr>

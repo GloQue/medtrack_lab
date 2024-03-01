@@ -8,7 +8,7 @@ function PharmacyStats({pharmacyData}) {
     <div>
         <Line 
             data = {{
-                labels : pharmacyData.map((item) => item.drugName),
+                labels : pharmacyData.map((item) => item.drugCode),
                 datasets: [
                     {
                         label: 'Drugs',
@@ -17,7 +17,7 @@ function PharmacyStats({pharmacyData}) {
 
                     {
                         label: 'Price',
-                        data: pharmacyData.map((item) => item.price)
+                        data: pharmacyData.map((item) => item.unitOfPricing)
                     }
                 ]
             }}

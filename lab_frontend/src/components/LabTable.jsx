@@ -9,17 +9,9 @@ import '../components/Table.css'
 import { useSnackbar } from 'notistack';
 
 
-function LabTable({data}) {
+function LabTable({filteredData, handleOpenModal}) {
 const dispatch = useDispatch();
 const {enqueueSnackbar} = useSnackbar();
-
-const handleDelete = (id) => {
-  if (window.confirm('Are you sure you want to delete this item?')) {
-    dispatch(deleteLabData(id));
-    enqueueSnackbar('Lab Deleted Successfully', {variant: 'success'})
-  }
-};
-
 
   return (
     <div className='table_container'>
@@ -37,7 +29,7 @@ const handleDelete = (id) => {
             </thead>
             <tbody>
                {
-                data.map((tableInfo, index) => (
+                filteredData.map((tableInfo, index) => (
                   <tr key={tableInfo._id}>
                     <td>{tableInfo.labName}</td>
                     <td>{tableInfo.labType}</td>
@@ -49,7 +41,7 @@ const handleDelete = (id) => {
                       <div className='table_icons_container' style={{display: "flex", gap: "1rem", justifyContent: "center"}}>
                         <Link className='view_btn' to={`/showlabinfo/${tableInfo._id}`}><MdOutlinePreview /></Link>
                         <Link className='edit_btn' to={`/editlabform/${tableInfo._id}`}><CiEdit /></Link>
-                        <MdDelete className='delete_btn' onClick={() => handleDelete(tableInfo._id)}/>
+                        <MdDelete className='delete_btn' onClick={() => handleOpenModal(tableInfo._id)}/>
                       </div>
                     </td>
                 </tr>

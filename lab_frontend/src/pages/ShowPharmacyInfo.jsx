@@ -44,7 +44,7 @@ function ShowPharmacyInfo() {
                     </div>
                     <div>
                         <span>DRUG CODE:</span>
-                        <span>{pharmacy.DRUGCode}</span>
+                        <span>{pharmacy.drugCode}</span>
                     </div>
                     <div>
                         <span>PRICE:</span>

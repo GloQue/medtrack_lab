@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useNavigate, Link } from 'react-router-dom'
-import { updateDrugData } from '../store/thunk';
+import { fetchDrugData, updateDrugData } from '../store/thunk';
 import '../components/EditForm.css'
 import { useSnackbar } from 'notistack';
 import '../components/EditPharmacyForm.css'
@@ -10,25 +10,29 @@ function EditPharmacyForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const {enqueueSnackbar} = useSnackbar();
-    const pharmDetails = useSelector((state) => state.pharmacy.pharmacyInfo);
-    console.log({pharmDetails})
+    const pharmData = useSelector((state) => state.pharmacy.pharmacyInfo);
     const {id} = useParams();
-    const filterPharmDetails = pharmDetails.find((item) => item._id === id);
     
+    const filterPharmDetails = pharmData.find((item) => item._id === id);
     
     const [drugName, setDrugName] = useState('');
     const [description, setDescription] = useState('');
     const [unitPrice, setUnitPrice] = useState('');
     const [drugCode, setDrugCode] = useState('');
     const [drugPrice, setDrugPrice] = useState('');
+    
+
+   useEffect(() => {
+    dispatch(fetchDrugData())
+   }, [dispatch])
 
 
     useEffect(() => {
-        setDrugName(filterPharmDetails.drugName)
-        setDescription(filterPharmDetails.description)
-        setUnitPrice(filterPharmDetails.unitPrice)
-        setDrugCode(filterPharmDetails.drugCode)
-        setDrugPrice(filterPharmDetails.drugPrice)
+        setDrugName(filterPharmDetails?.drugName)
+        setDescription(filterPharmDetails?.description)
+        setUnitPrice(filterPharmDetails?.unitPrice)
+        setDrugCode(filterPharmDetails?.drugCode)
+        setDrugPrice(filterPharmDetails?.drugPrice)
     }, [filterPharmDetails])
 
     const handleEdit = (id) => {

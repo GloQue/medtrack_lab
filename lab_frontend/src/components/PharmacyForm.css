@@ -14,8 +14,14 @@
   }
   
   .stats_container_pharmacy{
-    background-color: white;
     flex-basis: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stats_pharmacy {
+    background-color: white;
   }
   
   .label_input_container_pharmacy{
@@ -25,7 +31,7 @@
   }
   
   .label_input_container_pharmacy label{
-    color: rgb(158,187,168);
+    color: rgb(108,149,121);
     flex-basis: 30%;
   }
   
@@ -106,6 +112,7 @@
       
       .submit_button_pharmacy{
         width: 100%;
+        margin-top: 1rem;
       }
   }
 
@@ -151,5 +158,6 @@
       
       .submit_button_pharmacy{
         width: 100%;
+        margin-top: 1rem;
       }
   }

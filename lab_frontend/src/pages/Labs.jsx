@@ -1,20 +1,19 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchLabData } from "../store/thunk";
+import { deleteLabData, fetchLabData } from "../store/thunk";
 import { useSnackbar } from "notistack";
 import LabTable from "../components/LabTable";
 import LabNav from "../components/LabNav";
-import ShowLabOptions from "../components/ShowLabOptions";
 import LabForm from "../components/LabForm";
+import DeleteModal from "../components/DeleteModal";
 
 function Labs() {
-  const data = useSelector((state) => state.lab.labInfo);
+  const labData = useSelector((state) => state.lab.labInfo);
   const dispatch = useDispatch();
   const [inputVal, setInputVal] = useState("");
   const [filteredData, setFilteredData] = useState([]);
-  const [inputData, setInputData] = useState([]);
-
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedDrugId, setSelectedDrugId] = useState(null);
   const { enqueueSnackbar } = useSnackbar();
   
   useEffect(() => {
@@ -22,38 +21,47 @@ function Labs() {
   }, [dispatch]);
 
   useEffect(() => {
-    setInputData(data);
-  }, [data]);
+    setFilteredData(labData)
+  }, [labData])
 
-  const handleOnChange = (event) => {
+  const handleOpenModal = (id) => {
+    setSelectedDrugId(id)
+    setOpenModal(true)
+  }
+
+  const handleCloseModal = () => {
+    setOpenModal(false)
+  }
+
+  const handleDelete = (id) => {
+    dispatch(deleteLabData(id))
+    setOpenModal(false)
+    enqueueSnackbar("item deleted successfully");
+  }
+
+  const handleSearchField = (event) => {
     const inputValue = event.target.value;
     setInputVal(inputValue);
-
-    if (inputValue.trim() === "") {
-      setFilteredData([]);
+  
+    if (inputValue.trim() === '') {
+      setFilteredData(labData);
     } else {
-      const filtered = inputData.filter(
-        (item) =>
-          item &&
-          item.labName &&
-          item.labName.toLowerCase().includes(inputValue.toLowerCase())
-      );
-      if (filtered.length > 0) {
-        setFilteredData(filtered);
-      } else {
-        enqueueSnackbar("No items match your search");
-      }
+      const filtered = labData.filter(item => item && item.labName && item.labName.toLowerCase().includes(inputValue.toLowerCase()));
+      setFilteredData(filtered);
     }
   };
+  
 
   return (
     <div>
-      <LabNav handleOnChange={handleOnChange} />
-      <ShowLabOptions filteredData={filteredData} />
+      <LabNav handleSearchField={handleSearchField}/>
+      {
+        openModal && <DeleteModal handleCloseModal={handleCloseModal} handleDelete={handleDelete} selectedDrugId={selectedDrugId}/>
+      }
       <div style={{ padding: "2rem 3rem" }}>
         <h1 className="lab_heading">Lab Inventory Management System</h1>
         <LabForm />
-        <LabTable data={data} />
+        <LabTable filteredData={filteredData} handleOpenModal={handleOpenModal}/>
       </div>
     </div>
   );

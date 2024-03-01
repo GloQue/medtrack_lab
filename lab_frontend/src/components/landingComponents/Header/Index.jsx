@@ -8,16 +8,12 @@ const Header = () => {
       <div className="nav-data">
         <img src={logo} alt="" className="logo" />
         <ul className="navLinks">
-          <Link to={"/"}>
-            <li>Home</li>
-          </Link>
-
           <Link to={"/pharmacy"}>
-            <li>Pharmacy</li>
+            <span>Pharmacy</span>
           </Link>
 
           <Link to={"/labs"}>
-            <li>Labs</li>
+            <span>Labs</span>
           </Link>
         </ul>
       </div>

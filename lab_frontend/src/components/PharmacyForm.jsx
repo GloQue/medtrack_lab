@@ -4,6 +4,7 @@ import { addDrugData, fetchDrugData } from '../store/thunk';
 import './PharmacyForm.css'
 import { useSnackbar } from 'notistack';
 import PharmacyStats from './PharmacyStats';
+import DeleteModal from './DeleteModal';
 
 
 function PharmacyForm() {
@@ -84,7 +85,10 @@ function PharmacyForm() {
         </div>
       </form>
       <div className='stats_container_pharmacy'>
-        <PharmacyStats pharmacyData={pharmacyData} />
+        <span>ggsdddvdkbv</span>
+        <div className='stats_pharmacy'>
+          <PharmacyStats pharmacyData={pharmacyData} />
+        </div>
       </div>
     </div>
   )
