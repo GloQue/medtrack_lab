@@ -81,7 +81,7 @@ function Labs() {
         <h1 className="lab_heading">Lab Inventory Management System</h1>
         <LabForm />
         <LabPagination filteredData={filteredData} handleOpenModal={handleOpenModal}/>
-        {/* <LabTable handleOpenModal={handleOpenModal}/> */}
+        {/* <LabTable handleOpenModal={handleOpenModal}/> filteredData={filteredData} */}
         {/* <Posts posts={currentPosts}/>
         <Pagination postsPerPage={postsPerPage} totalPosts={filteredData.length} paginate={paginate}/> */}
       </div>

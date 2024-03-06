@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchLabData } from '../../store/thunk';
 import LabTable from '../LabTable';
 import ReactPaginate from 'react-paginate';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import "./Pagination.css"
 
 function LabPagination({filteredData, handleOpenModal}) {
   const labData = useSelector((state) => state.lab.labInfo);

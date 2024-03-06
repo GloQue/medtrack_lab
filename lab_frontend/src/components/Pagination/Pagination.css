@@ -4,11 +4,13 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    margin: 0 auto;
   }
   
   .pagination {
     list-style: none;
     display: flex;
+    justify-content: center;
     gap: 8px;
   }
   
@@ -22,7 +24,7 @@
   }
   
   .page-item.active {
-    background-color: #4caf50;
+    background-color: rgb(8,113,179);
     color: white;
   }
   
