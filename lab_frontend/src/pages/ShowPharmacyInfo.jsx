@@ -4,7 +4,6 @@ import { useParams, Link } from 'react-router-dom';
 import '../components/ShowLabInfo.css'
 import { fetchDrugData } from '../store/thunk';
 
-
 function ShowPharmacyInfo() {
     const dispatch = useDispatch();
     const pharmInfo = useSelector(state => state.pharmacy.pharmacyInfo);
@@ -26,6 +25,7 @@ function ShowPharmacyInfo() {
             {
               pharmacyArr.map((pharmacy) => (
                 <div className='lab_container' style={{border: "1px solid rgb(108,149,121)"}}>
+                    <h1 style={{color: "rgb(108,149,121)", marginBottom: "1rem"}}>{pharmacy.drugName} Details</h1>
                     <div>
                         <span>ID:</span>
                         <span>{pharmacy._id}</span>

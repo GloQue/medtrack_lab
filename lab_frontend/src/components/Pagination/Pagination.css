@@ -1,0 +1,28 @@
+/* Pagination.css */
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+  }
+  
+  .page-item {
+    display: inline-block;
+    padding: 8px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .page-item.active {
+    background-color: #4caf50;
+    color: white;
+  }
+  

@@ -106,11 +106,15 @@ function LabForm() {
           </div>
         </div>
       </form>
-      <div className='stats_container'>
-        <LabStats labData={labData}/>
+      <div className='stats_container_pharmacy'>
+        <span style={{color: "rgb(8,113,179)", fontSize: "1.5rem", fontWeight: "600"}}>Stats</span>
+        <div className='stats_pharmacy'>
+          <LabStats labData={labData}/>
+        </div>
       </div>
     </div>
   )
 }
 
 export default LabForm
+

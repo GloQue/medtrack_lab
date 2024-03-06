@@ -19,7 +19,7 @@ function LabNav({handleSearchField}) {
         <input
           type="search"
           className="nav_bar_search"
-          placeholder="Search lab name"
+          placeholder="Search lab"
           onChange={handleSearchField}
         />
         <CiSearch className="nav_search_icon" />

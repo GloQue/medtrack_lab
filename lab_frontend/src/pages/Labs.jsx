@@ -6,9 +6,15 @@ import LabTable from "../components/LabTable";
 import LabNav from "../components/LabNav";
 import LabForm from "../components/LabForm";
 import DeleteModal from "../components/DeleteModal";
+import Posts from "../components/Pagination/Posts";
+import Pagination from "../components/Pagination/Pagination";
+import LabPagination from "../components/Pagination/LabPagination";
 
 function Labs() {
   const labData = useSelector((state) => state.lab.labInfo);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(5);
+  const [posts, setPosts] = useState([]);
   const dispatch = useDispatch();
   const [inputVal, setInputVal] = useState("");
   const [filteredData, setFilteredData] = useState([]);
@@ -19,6 +25,10 @@ function Labs() {
   useEffect(() => {
     dispatch(fetchLabData());
   }, [dispatch]);
+
+  // useEffect(() => {
+  //   setPosts(labData)
+  // }, [])
 
   useEffect(() => {
     setFilteredData(labData)
@@ -50,7 +60,16 @@ function Labs() {
       setFilteredData(filtered);
     }
   };
-  
+
+
+  //Get current posts
+  const indexOfLastPost = currentPage * postsPerPage
+  const indexOfFirstPost = indexOfLastPost - postsPerPage
+  const currentPosts = filteredData.slice(indexOfFirstPost, indexOfLastPost)
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
 
   return (
     <div>
@@ -61,7 +80,10 @@ function Labs() {
       <div style={{ padding: "2rem 3rem" }}>
         <h1 className="lab_heading">Lab Inventory Management System</h1>
         <LabForm />
-        <LabTable filteredData={filteredData} handleOpenModal={handleOpenModal}/>
+        <LabPagination filteredData={filteredData} handleOpenModal={handleOpenModal}/>
+        {/* <LabTable handleOpenModal={handleOpenModal}/> */}
+        {/* <Posts posts={currentPosts}/>
+        <Pagination postsPerPage={postsPerPage} totalPosts={filteredData.length} paginate={paginate}/> */}
       </div>
     </div>
   );

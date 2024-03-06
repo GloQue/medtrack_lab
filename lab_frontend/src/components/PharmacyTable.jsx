@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { MdOutlinePreview } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
-import { deleteDrugData, fetchDrugData } from '../store/thunk';
+import { fetchDrugData } from '../store/thunk';
 import { Link } from 'react-router-dom';
 import './PharmacyTable.css'
-import { useSnackbar } from 'notistack';
 
 function PharmacyTable({data, handleOpenModal}) {
     const dispatch = useDispatch();

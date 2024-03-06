@@ -85,7 +85,7 @@ function PharmacyForm() {
         </div>
       </form>
       <div className='stats_container_pharmacy'>
-        <span>ggsdddvdkbv</span>
+        <span style={{color: "rgb(108,149,121)", fontSize: "1.5rem"}}>Top 5 expensive drugs</span>
         <div className='stats_pharmacy'>
           <PharmacyStats pharmacyData={pharmacyData} />
         </div>

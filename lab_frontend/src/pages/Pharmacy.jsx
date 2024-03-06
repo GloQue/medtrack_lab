@@ -48,7 +48,7 @@ function Pharmacy() {
     if (inputValue.trim() === "") {
       setFilteredData([]);
     } else {
-      const filtered = inputData.filter((item) => item && item.drugName && item.drugName.toLowerCase().includes(inputValue.toLowerCase()));
+      const filtered = inputData.filter((item) => item && item.drugName && item.drugName.toLowerCase().includes(inputValue.toLowerCase()) || item && item.drugName && item.drugCode.toLowerCase().includes(inputValue.toLowerCase()));
       if (filtered.length > 0) {
         setFilteredData(filtered);
       } else {

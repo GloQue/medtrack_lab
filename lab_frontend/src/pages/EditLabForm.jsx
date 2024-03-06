@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams, Link } from 'react-router-dom';
-import { fetchLabData, updateLabData } from '../store/thunk';
+import { updateLabData } from '../store/thunk';
 import '../components/EditForm.css'
 import { useSnackbar } from 'notistack';
 
@@ -44,10 +44,25 @@ function EditLabForm() {
             labCode,
             labPrice
         };
-    
-        dispatch(updateLabData(id, updatedLabData));
-        enqueueSnackbar('Lab Updated Successfully', {variant: 'success'})
-        navigate('/labs')
+
+
+        if(!labName){
+            enqueueSnackbar('Name field is required', {variant: 'error'})
+        }else if(!labType){
+            enqueueSnackbar('Lab type field is required', {variant: 'error'})
+        }else if(!mainCategory){
+            enqueueSnackbar('Main category field is required', {variant: 'error'})
+        }else if(!subCategory){
+            enqueueSnackbar('Sub category field is required', {variant: 'error'})
+        }else if(!labCode){
+            enqueueSnackbar('Labcode field is required', {variant: 'error'})
+        }else if(!labPrice){
+            enqueueSnackbar('Lab Price field is required', {variant: 'error'})
+        }else{
+            dispatch(updateLabData(id, updatedLabData));
+            enqueueSnackbar('Lab Updated Successfully', {variant: 'success'})
+            navigate('/labs')
+        }
     };
     
    

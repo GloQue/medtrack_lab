@@ -25,6 +25,7 @@ function ShowLabInfo() {
             {
                 labArr.map((lab) => (
                     <div className='lab_container'>
+                        <h1 style={{color: "rgb(8,113,179)", marginBottom: "1rem"}}>{lab.labName} Details</h1>
                         <div>
                             <span>ID:</span>
                             <span>{lab._id}</span>

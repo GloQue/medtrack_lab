@@ -67,4 +67,33 @@ const deleteLab = asyncHandler(async (req, res) => {
   res.send(deletedLab)
 });
 
-module.exports = { getLabs, getLab, addLab, updateLab, deleteLab };
+const getPaginatedUsers = asyncHandler(async (req, res) => {
+  const allUsers = await Lab.find({})
+  const page = parseInt(req.query.page);
+  const limit = parseInt(req.query.limit);
+
+  const startIndex = (page - 1) * limit
+  const lastIndex = (page) * limit
+
+  const results = {}
+  results.totalUser = allUsers.length
+  results.pageCount = Math.ceil(allUsers.length/limit)
+
+  if(lastIndex < allUsers.length){
+    results.next = {
+      page: page + 1
+    }
+  }
+
+  if(startIndex > 0){
+    results.prev = {
+      page: page - 1
+    }
+  }
+
+  results.result = allUsers.slice(startIndex, lastIndex)
+  res.json(results)
+
+})
+
+module.exports = { getLabs, getLab, addLab, updateLab, deleteLab, getPaginatedUsers };

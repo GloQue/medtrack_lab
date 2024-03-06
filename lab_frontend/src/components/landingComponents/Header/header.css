@@ -26,6 +26,10 @@ nav {
   font-size: 18px;
 }
 
+.navLinks a{
+  text-decoration: none;
+}
+
 .navLinks a span{
   color: white;
 }
